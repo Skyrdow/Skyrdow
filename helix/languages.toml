@@ -47,3 +47,15 @@ name = "astro"
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 language-servers = [ "astro-ls", "tailwindcss-ls" ]
+
+
+[[language]]
+name = "python"
+language-servers = [ "pyright", "ruff" ]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
