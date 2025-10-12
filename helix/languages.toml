@@ -32,24 +32,6 @@ formatter = { command = 'prettierd', args = [".tsx"] }
 auto-format = true
 
 [[language]]
-name = "svelte"
-language-servers = [ "tailwindcss-ls", "svelteserver" ]
-formatter = { command = 'prettierd', args = [".svelte"] }
-auto-format = true
-
-[language-server.astro-ls]
-command = "astro-ls"
-args = ["--stdio"]
-config = {typescript = {tsdk = "/Users/lucas/AppData/Roaming/npm/node_modules/typescript/lib"}, environment = "node"}
-
-[[language]]
-name = "astro"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser", "typescript"] }
-language-servers = [ "astro-ls", "tailwindcss-ls" ]
-
-
-[[language]]
 name = "python"
 language-servers = [ "pyright", "ruff" ]
 
@@ -59,3 +41,17 @@ typeCheckingMode = "basic"
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+
+[[language]]
+name = "markdown"
+comment-tokens = ["-", "+", "*", "- [ ]", ">"]
+
+
+[[language]]
+name = "svelte"
+language-servers = [ "svelteserver", "tailwindcss-ls" ]
+
+[[language]]
+name = "cpp"
+auto-format = true
+formatter = { command = 'clang-format', args = ["--style=Google"] } 

@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+source ~/.config/zshrc.d/dots-hyprland.zsh
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -108,6 +109,10 @@ alias hx='helix'
 alias update='sudo pacman -Syyu;yay -Su'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq);yay -Sc --noconfirm'
 
+# --help | bat --plhelp
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
 # pacman unlock
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
@@ -145,6 +150,10 @@ function y() {
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
 # Created by `pipx` on 2025-05-20 01:23:20
-export PATH="$PATH:/home/skyrdow/.local/bin"
+export PATH="$PATH:/home/skyrdow/.local/bin:/home/skyrdow/.cargo/bin"
+export PATH=/opt/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
+
 
