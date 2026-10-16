@@ -1,9 +1,20 @@
 
 [opener]
 edit = [
-	{ run = 'helix "$@"', block = true, for = "unix" },
+	{ run = 'hx "$@"', block = true, for = "unix" },
 ]
 
 [[mgr.prepend_keymap]]
 on  = "y"
 run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
+
+
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"
